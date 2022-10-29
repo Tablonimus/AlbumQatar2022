@@ -1,9 +1,10 @@
 import React from "react";
-import NavBar from "../NavBar/NavBar";
+
 import { Link } from "react-router-dom";
 import PWAPrompt from "react-ios-pwa-prompt";
 import { usePWAInstall } from "react-use-pwa-install";
 import Push from "push.js";
+import "./Download.css";
 
 export default function Download() {
   const install = usePWAInstall();
@@ -11,7 +12,7 @@ export default function Download() {
   async function handlerNotification(e) {
     e.preventDefault();
 
-    Push.create("Dale prendelo, no te conozco uno", {
+    Push.create("Dale prendelo, no te conozco uno 🚬", {
       body: "Puto el que lee",
       icon: "./copa.png",
       timeout: 4000,
@@ -23,8 +24,7 @@ export default function Download() {
   }
 
   return (
-    <div className="flex flex-col justify-between h-screen w-full items-center">
-      <NavBar />
+    <div className="flex flex-col justify-between h-screen w-full items-center fixed top-80 ">
       <PWAPrompt
         promptOnVisit={1}
         timesToShow={3}
@@ -36,30 +36,30 @@ export default function Download() {
         permanentlyHideOnDismiss={false}
       />
 
-      <div className="bg-green-600 justify-between mt-24 rounded-lg flex flex-col items-center">
+      <div className=" justify-between rounded-lg flex flex-col items-center">
+        <div className="flex flex-col items-center rounded-lg bg-gray-300 w-96 h-56 m-5 p-5 border justify-center opacity-90 shadow-lg">
+          <button
+            className="p-5 font-bold bg-green-400 rounded-lg shadow-lg"
+            onClick={install}
+          >
+            Instalar Aplicación si tenes android
+          </button>
+          <Link to="/" className="mt-5">
+            <button
+              className="p-5 font-bold bg-blue-400 rounded-lg shadow-lg"
+              onClick={install}
+            >
+              Para los chetos que tienen iPhone
+            </button>
+          </Link>
+        </div>
+
         <button
-          className="p-5 font-bold bg-[#F6D50E] m-5 rounded-lg shadow-lg"
+          className="fixed bottom-0 p-5 font-bold bg-[#F6D50E] m-5 rounded-lg shadow-lg"
           onClick={(e) => handlerNotification(e)}
-          // onClick={activateMessages}
         >
           🔔MENSAJE ESPECIAL🔔
         </button>
-     
-       
-            <div className="flex flex-col items-center rounded-lg bg-gray-300 w-96 h-56 m-5 p-5 border justify-center opacity-80 shadow-lg">
-              <h1 className="text-black font-bold items-center justify-center">
-                {" "}
-                Bienvenido al album de los primos.
-              </h1>
-              <button
-                className="p-5 font-bold bg-[#14ABD5] rounded-lg shadow-lg"
-                onClick={install}
-              >
-                Instalar Aplicación
-              </button>
-            </div>
-         
-       
       </div>
     </div>
   );
