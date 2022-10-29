@@ -37,6 +37,12 @@ export default function Download() {
       />
 
       <div className=" justify-between rounded-lg flex flex-col items-center">
+        <button
+          className=" p-5 font-bold bg-[#F6D50E] m-5 rounded-lg shadow-lg"
+          onClick={(e) => handlerNotification(e)}
+        >
+          🔔MENSAJE ESPECIAL🔔
+        </button>
         <div className="flex flex-col items-center rounded-lg bg-gray-300 w-96 h-56 m-5 p-5 border justify-center opacity-90 shadow-lg">
           <button
             className="p-5 font-bold bg-green-400 rounded-lg shadow-lg"
@@ -54,12 +60,6 @@ export default function Download() {
           </Link>
         </div>
 
-        <button
-          className="fixed bottom-0 p-5 font-bold bg-[#F6D50E] m-5 rounded-lg shadow-lg"
-          onClick={(e) => handlerNotification(e)}
-        >
-          🔔MENSAJE ESPECIAL🔔
-        </button>
       </div>
     </div>
   );
