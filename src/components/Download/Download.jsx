@@ -5,19 +5,13 @@ import PWAPrompt from "react-ios-pwa-prompt";
 import { usePWAInstall } from "react-use-pwa-install";
 import Push from "push.js";
 
-
-
 export default function Download() {
-
- 
- 
-
   const install = usePWAInstall();
 
   async function handlerNotification(e) {
     e.preventDefault();
 
-    Push.create("Mensaje Especial para ti!", {
+    Push.create("Dale prendelo, no te conozco uno", {
       body: "Puto el que lee",
       icon: "./copa.png",
       timeout: 4000,
@@ -42,35 +36,20 @@ export default function Download() {
         permanentlyHideOnDismiss={false}
       />
 
-
-   
       <div className="bg-green-600 justify-between mt-24 rounded-lg flex flex-col items-center">
         <button
           className="p-5 font-bold bg-[#F6D50E] m-5 rounded-lg shadow-lg"
           onClick={(e) => handlerNotification(e)}
           // onClick={activateMessages}
         >
-        🔔MENSAJE ESPECIAL🔔
+          🔔MENSAJE ESPECIAL🔔
         </button>
-        {!install ? (
-          <div className="flex flex-col items-center rounded-lg bg-gray-300 w-96 h-56 m-5 p-5 border justify-center opacity-80 shadow-lg">
-            <h1 className="text-black font-bold items-center justify-center">
-              {" "}
-              Esta aplicación ya esta descargada en su dispositivo.
-            </h1>
-
-            <Link to="/">
-              <button className="p-5 font-bold bg-green-800 text-white rounded-lg shadow-lg">
-                Ir al Inicio
-              </button>
-            </Link>
-          </div>
-        ) : (
-          install && (
+     
+       
             <div className="flex flex-col items-center rounded-lg bg-gray-300 w-96 h-56 m-5 p-5 border justify-center opacity-80 shadow-lg">
               <h1 className="text-black font-bold items-center justify-center">
                 {" "}
-                Bienvenido a Aconcagua Cup!.
+                Bienvenido al album de los primos.
               </h1>
               <button
                 className="p-5 font-bold bg-[#14ABD5] rounded-lg shadow-lg"
@@ -79,10 +58,9 @@ export default function Download() {
                 Instalar Aplicación
               </button>
             </div>
-          )
-        )}{" "}
+         
+       
       </div>
-
     </div>
   );
 }
