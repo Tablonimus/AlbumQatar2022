@@ -15,7 +15,6 @@ export default function NavBar() {
 
         {/* <img src={copa} alt="" className="w-16 mx-2" /> */}
       </Navbar.Brand>
-   
     </Navbar>
   );
 }
